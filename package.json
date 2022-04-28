@@ -1,0 +1,16 @@
+{
+  "name": "localfileserver",
+  "version": "1.0.0",
+  "description": "local file server for small organization to weexcahnge files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "clinet",
+    "auth"
+  ],
+  "author": "hamza ibad rehman",
+  "license": "ISC"
+}
