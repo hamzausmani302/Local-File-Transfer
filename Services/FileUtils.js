@@ -6,6 +6,18 @@ const root_path = path.resolve(__dirname , "../SharedDirectory")
 const result = {error : 0}; 
 class FileUtils{
 
+    static CheckAndAddFolder = ()=>{
+        //chcek whether folder exist
+        if (!fs.existsSync(root_path)) {
+              fs.mkdirSync(root_path );
+        } 
+        
+        //if not then create folder
+
+        //else leave
+
+
+    }
     static ListFiles = ()=>{
         let promise = new Promise((resolve , reject)=>{
             fs.readdir(root_path, (err , files)=>{
