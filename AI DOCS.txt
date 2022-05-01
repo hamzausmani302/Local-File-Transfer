@@ -1,0 +1,164 @@
+
+!9k-0146
+hamza usmani
+
+_______________________
+
+Question 1
+_______________________
+1.
+Artificial Intelligence is the development and theoritical understanding of computer systems which can perform tasks which normally
+require human intelligence. Yes, I do agree because Speech recognition and prediction systems have known to be perfomed even better than
+human themselves like chess AI which defeated the renowned world Champion.
+
+2.
+Self driving cars by Tesla are examples of AI which has bring a revolution in automobile sector in the recent years.
+
+3.
+Everything that has been done till now in the field of AI is the practice of replicating human brain itself through program so it can
+take certain decisions based on the inputs from the environment. It has already surpassed human brain in some areas like gamimg industry 
+but AI shouldn't be replicated to that extent which may cause potential risk on human lives like introducing emotional intelligence may cause
+the AI robots to take negative actions.
+
+4.
+Despite exceptional results, AI has faced numerous criticism in the recent years which were a result of certain failures in AI applications.
+Accidents of self driving cars which failed to make any proper decison when a truck was in front and crashed into it risking human lives.
+Medical is a very sensitive sector so introducing AI may cause it to take ultimate decisons but even a slightest mis-learning can lead to 
+a very serious matter but still there are few cases where AI has reportedly malfunctioned as it is a machine , it is still unable to reach the 
+potential of human brain.
+
+5.
+Reasoning in AI refers to the logical process of making decisions based on an input with the help of existing knowledge. Logic is the 
+representation of knowledge of the agent world , environment etc while ontalogy is a shared vocabulary for researchers to represent 
+knowledge around Machine learning disciple.
+
+6.
+Machine learning allows a computer to learn from data by identifying patterns in the data and to identify these patterns
+it uses  statistics and probability to classify, predict ,recommend and make decisions based on the pattern. e.g linear regression etc.
+Similarly probability allows the computer to make certain predictions and take decisons after learning from the input data then predicting 
+external data.
+
+7.
+AI has been a field of major research in the past years. Self driving cars, smart appliances, artificial intelligence robots,
+emotional intelligence , computer vision. Work has been done in these areas but still they are still yet to be explored. Machine learning in
+cybersecurity to allow the system to defend itself from cyber attacks.
+
+
+
+_____________________
+
+Question 2 
+_____________________
+
+applcation :- Automated taxi driver
+
+Environment type : Partially observable(it donot have 360 degree coverage of environment eg.road),
+stochastic(Never predict the behavior of environment), 
+Sequential (it needs to remember previous actions to take further decisions) , 
+dynamic(changing environment) ,   
+Singgle Agent environment(only one agent driver here)
+Agent type : Goal baseed Agents(it has a certain goal to reach its destination)
+
+Performance Measure:  Safe,Reliable,Efficient,Friendly,Provide comfor
+Environment: Roads , Other Vehicles ,Customers , Pulls , Brideges
+Actuators: Steering Wheel, Brakes , Horn , 
+Sensors:Camera , Speedometer , car monitoring sensors
+
+______________________
+
+Question 3 
+______________________
+
+Blind search is a searching techniques where the algorithm donot know where 
+the goal exists or whether it exists or not. It just brute force to find the
+goal whether it is presnt of not.
+DFS and BFS are examples of Blind search
+where DFS uses LIFO stack and BFS uses BFS queue data structure.
+
+______________________
+
+Question 4 
+______________________
+
+queue = Queue();
+func DepthSearch(root , node , depth):
+	found = False;
+	while(!queue.isempty())
+		if(root.depth >= depth)
+			
+		elif(root == node)
+			found  =  True;
+			break;
+		else:
+			for child in root.adj:
+				queue.push(child);
+			
+		root = queue.pop();	
+	return found;
+func Iterative_Deepening_Depth(graph, node , maxdepth)
+	for i in (1..maxdepth):
+		result = DepthSearch(graph.root , node ,i);			
+		if(result == True)
+		 is 	return "Found";
+	return "Not Found"
+
+
+
+
+
+_________________________
+
+Question 5
+_________________________
+
+Algorithms have information about the goal state which makes searching process more efficient.
+This information is obtained thorugh heuitistic.
+Heuristic is a function which allows the algorithm to get information about an object. 
+e.g PACMAN GAME where the distance between enemy and player is calculated by the AI player.
+
+_________________________
+
+Question 6
+_________________________
+
+Initially 
+STEP 1:
+	Visited = []
+	Queue = [S]
+STEP 2 : Pop S  push childrens in priority irder
+	Visited =[S]
+	Queue = [A,B,C,D]	//5 9 6 6
+STEP 3 : POP A PUSH ITS CHILDREN	{lowest cost}
+	Visited = [S,A]
+	Queue = [G1,B,C,D]	//9 9 6 6
+STEP 4 : Pop C PUSH CHILDRENS
+	Visited = [S,A,C]
+	Queue = [G2,F,G1,B,D]	//5 7 9 9 6
+STEP 5 : Pop G2 no hcildrens
+	Visited = [S,A,C,G2]	//found GOAL 2
+	Queue = {F,G1,B,D}	//7 9 9 6
+STEP 6 : Pop D and push childrens
+	Visited = [S,A,C,G2,D]
+	Queue = [F,G1,B,E]	  //7 9 9 2		//C already visited so not pushed
+STEP 7 : Pop E and push childrens
+	Visited = [S,A,C,G2,D,E]
+	Queue = [G3,F,G1,B]	//7 7 9 9
+STEP 8 : Pop G3 
+	Visited = [S,A,C,G2,D,E,G3]
+	Queue = [F,G1,B]	//7 9 9
+STEP 9 : Pop F and add children {D already visited}
+	Visited = [S,A,C,G2,D,E,G3]
+	Queue = [G1,B]	//9 9 
+STEP 10 : Pop G1
+	Visited =[S,A,C,G2,D,E,G3,G1];
+	Queue = [B]	// 9
+STEP 11 : Pop B {A and C visited}
+	Visited =[S,A,C,G2,D,E,G3,G1,B];
+	Queue = []	//Queue is now empty stop
+
+STEP 12 : STOP
+	 
+
+
+
+ 

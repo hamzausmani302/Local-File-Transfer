@@ -1,0 +1,3 @@
+Although both the approaches gives similar results on the used datasets
+but the pruning gives slightly better result with boht the gini and entropy
+methods 

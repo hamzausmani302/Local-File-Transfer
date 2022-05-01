@@ -6,15 +6,76 @@
       <title>Hello world</title>
    </head>
    <script src = "/socket.io/socket.io.js"></script>
-        
-   
+   <script src="/socket.io/socket.io.js"></script>
+   <script src="/js/socket.io-stream.js"></script>
+   <script src="/js/jquery.js"></script>     
+   <script src="/siofu/client.js"></script>
    <script>
        
       socket = io();
       
+      // var uploader = new SocketIOFileUpload(socket);
+      // uploader.listenOnInput(document.getElementById("File"));
+      // const file= new File("index1.txt");
+      // socket.emit("message" , "hello")
+      socket.on("communication" , (message)=>{
+         console.log(message);
+      })    
    </script>
    <body>
-       <h1> Home page<h1>
-        <div><%= content %></div>    
+       <h3>DASHBOARD </h3>
+       <form action="/profile" enctype="multipart/form-data" method="POST">
+         <div class="form-group">
+            <label for="myfile">Upload Other File Type:</label>
+            <br />
+
+           <input type="file" class="form-control-file" name="File">
+           
+           <input type="submit" value="Get me the stats!" class="btn btn-default">            
+         </div>
+       </form>
+       <br />
+       <br />
+       <br />
+       
+       <form id="uploadForm"> -->
+         <label for="file_text">Upload Text File:</label>   
+         <input name="file_text" id="upload" type="file"  />
+        </form> 
+       <form method="POST" id="uploadFolder" action="/uploadFolder">
+         <input id="folder" type="file" name="Folder" webkitdirectory mozdirectory />
+       </form>
+       <div><%= content %></div>   
+        <script>
+           
+               function handleFileSelect(evt) {
+                  let files = evt.target.files; // FileList object
+                  // console.log(files);
+                  // use the 1st file from the list
+                  let f = files[0];
+                  console.log(f);
+                  let reader = new FileReader();
+
+                  // Closure to capture the file information.
+                  reader.onload = (function (theFile) {
+                     return function (e) {
+                           const data = e.target.result;
+                           const filename = f.name;
+                           console.log(data);
+                           // var stream = ss.createStream()
+                           
+                           socket.emit("file_upload" , JSON.stringify({"filename" : filename , "data" : data}));
+                     };
+                  })(f);
+                  // Read in the image file as a data URL.
+                  reader.readAsBinaryString(f);
+                  
+                  
+               }
+
+               document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+    
+        </script>
+        
    </body>
 </html>

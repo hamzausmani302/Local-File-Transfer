@@ -18,6 +18,15 @@ class FileUtils{
 
 
     }
+    static getExtension = (filename ,  pattern    )=>{
+        const idx = filename.lastIndexOf(pattern);
+        if(idx){
+            const extension = filename.substring(idx+1 );
+            return extension;
+        }
+        return null;
+    }
+    
     static ListFiles = ()=>{
         let promise = new Promise((resolve , reject)=>{
             fs.readdir(root_path, (err , files)=>{
@@ -34,6 +43,17 @@ class FileUtils{
         return promise;
     }
 
+
+    static AddFile = (filename , data , extension)=>{
+        try{    
+            const path = root_path + '\\' + filename;
+            console.log(path)
+        fs.writeFileSync(path , data );
+            return "Added File Successfully";
+    }catch(err){
+            return err;
+        }
+    }
     static MakeDirectory = ()=>{
 
         
