@@ -7,8 +7,6 @@
    </head>
    <script src = "/socket.io/socket.io.js"></script>
    <script src="/socket.io/socket.io.js"></script>
-   <script src="/js/socket.io-stream.js"></script>
-   <script src="/js/jquery.js"></script>     
    <script src="/siofu/client.js"></script>
    <script>
        
@@ -19,8 +17,11 @@
       // const file= new File("index1.txt");
       // socket.emit("message" , "hello")
       socket.on("communication" , (message)=>{
-         console.log(message);
+         console.log(message)
+         document.getElementById("socket_msg").innerHTML = message
       })    
+      
+      
    </script>
    <body>
        <h3>DASHBOARD </h3>
@@ -31,7 +32,7 @@
 
            <input type="file" class="form-control-file" name="File">
            
-           <input type="submit" value="Get me the stats!" class="btn btn-default">            
+           <input type="submit" value="Upload Selected File" class="btn btn-default">            
          </div>
        </form>
        <br />
@@ -42,16 +43,13 @@
          <label for="file_text">Upload Text File:</label>   
          <input name="file_text" id="upload" type="file"  />
         </form> 
-       <form method="POST" id="uploadFolder" action="/uploadFolder">
-         <input id="folder" type="file" name="Folder" webkitdirectory mozdirectory />
-       </form>
-       <div><%= content %></div>   
+        
+       <div><%- content %></div>
+       <div id="socket_msg">NO_MESSAGE</div>   
         <script>
-           
+               
                function handleFileSelect(evt) {
                   let files = evt.target.files; // FileList object
-                  // console.log(files);
-                  // use the 1st file from the list
                   let f = files[0];
                   console.log(f);
                   let reader = new FileReader();
@@ -72,7 +70,6 @@
                   
                   
                }
-
                document.getElementById('upload').addEventListener('change', handleFileSelect, false);
     
         </script>

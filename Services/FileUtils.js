@@ -6,6 +6,11 @@ const root_path = path.resolve(__dirname , "../SharedDirectory")
 const result = {error : 0}; 
 class FileUtils{
 
+    static ReadFile = (filename)=>{
+        const data = fs.readFileSync(path.resolve(root_path , `${filename}`))
+        console.log(data);
+        return data;
+    }
     static CheckAndAddFolder = ()=>{
         //chcek whether folder exist
         if (!fs.existsSync(root_path)) {
