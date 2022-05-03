@@ -53,19 +53,22 @@ class DBUtils{
 
         
     }
-
+    
 
     static addUser = (id , password , role)=>{
         let promise = new Promise((resolve , reject)=>{
             DBUtils.getUser(id).then(data=>{
                 if(data.length == 0){
+                    
                     fs.appendFile(DB_FILENAME , `\n${id},${password},${role}`, (err1 )=>{
-                        if(err1) reject(err1)
+                        if(err1) {reject("USER ALREADY EXISTS")}
                         resolve("ADDED SUCCESSFULLY");
                     });
-                }
-                reject("USER ALREADY EXISTS")
+                }else{
+                    
         
+                }
+                
             }).catch(err=>{
                 reject(err)
             })

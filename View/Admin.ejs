@@ -62,12 +62,12 @@
       })    
       
       socket.on("searchFilter"  , (msg)=>{
-         console.log(msg);
+         console.log(msg , msg.length);
          document.getElementById("filtered").innerHTML= '';
       
          for(let i = 0 ; i < msg.length;i++){
             let m = msg[i].replaceAll("/" , "%2F");
-            document.getElementById("filtered").innerHTML+= `<img src='../Services/assets/diricon.png' /><a href="/files/${m}"> ${msg[i]} </a><br />`
+            document.getElementById("filtered").innerHTML += `<img src='../Services/assets/diricon.png' /><a href="/files/${m}"> ${msg[i]} </a><br />`
       
          }
       })
@@ -110,7 +110,27 @@
        <div id="ListBox"><%- content %></div>
        <div id="socket_msg">NO_MESSAGE7</div>
          
-       </div>   
+       </div> 
+       
+       <form id="adminForn" method="POST" action="/addUser">
+        <label for="uesr_name">Username</label>    
+        <input type="text" id="user_name" name="user_name"/>
+
+        <label for="pass_word">Password</label>    
+        <input type="password" name="pass_word" id="pass_word"/>
+
+    <br />        
+        <input type="radio" id="user_type" name="user_type" value="User">
+
+        <label for="html">User:</label><br>
+        <br />
+        <input type="radio" id="user_type" name="user_type" value="Admin">
+        <label for="html">Admin</label><br>
+        <input type="submit" />
+       </form>
+       <div id="success_result" style="color:green;"><%- success %></div>
+       <div id="error_result" style="color:red;"><%- err %></div>
+       
         <script>
            function goBack(){
             let path = document.cookie.search("path=");
